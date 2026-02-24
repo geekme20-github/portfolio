@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A/B Testing — Cookie Cats | Gabriel Baraka</title>
+    <meta name="description"
+        content="A/B testing analysis on the Cookie Cats mobile game — using bootstrapping and Mann-Whitney U tests to determine optimal game design for player retention." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">GB.</a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">← Back to Portfolio</a>
+                <a href="#overview">Overview</a>
+                <a href="#results">Results</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#files">Files</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Portfolio</a> <span>/</span> <span>Project 3</span>
+            </div>
+            <h1 class="gradient-text">A/B Testing — Cookie Cats</h1>
+            <p class="project-desc">A rigorous statistical experiment on a mobile game with 90,000+ players — using
+                hypothesis testing and bootstrapping to make a data-driven design decision.</p>
+            <div class="project-meta">
+                <span class="tag tag-testing">A/B Testing</span>
+                <span class="tag tag-stats">Hypothesis Testing</span>
+                <span class="tag tag-python">Python</span>
+                <span class="tag tag-viz">Visualization</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BUSINESS OVERVIEW ========== -->
+    <section class="project-section" id="overview">
+        <div class="container">
+            <div class="two-col">
+                <div class="reveal">
+                    <span class="section-label">The Problem</span>
+                    <h2 class="section-title">Should We Move the Gate?</h2>
+                    <p class="mb-16"><strong>Cookie Cats</strong> is a popular mobile puzzle game. Like many games, it
+                        has "gates" — points where players must wait or make a purchase before continuing. These gates
+                        force a break in gameplay.</p>
+                    <p class="mb-16">The game's designers wondered: <strong>What happens if we move the first gate from
+                            Level 30 to Level 40?</strong> Would players enjoy more uninterrupted play, or would the
+                        longer session lead to burnout?</p>
+                    <p>To answer this scientifically, they ran an <strong>A/B test</strong> — randomly assigning 90,189
+                        new players to either the original (gate at 30) or the new version (gate at 40) and measuring
+                        what happened.</p>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div class="results-grid">
+                        <div class="result-highlight">
+                            <div class="result-number">90,189</div>
+                            <div class="result-label">Players Tested</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">A / B</div>
+                            <div class="result-label">Two Groups Compared</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">14</div>
+                            <div class="result-label">Days Tracked</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">1,000</div>
+                            <div class="result-label">Bootstrap Samples</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== RESULTS ========== -->
+    <section class="project-section" id="results">
+        <div class="container">
+            <div class="text-center mb-48 reveal">
+                <span class="section-label">The Verdict</span>
+                <h2 class="section-title">Keep the Gate at Level 30</h2>
+                <p class="mx-auto section-desc">The data tells a clear story: moving the gate later <strong>hurts player
+                        retention</strong>. The original design is better.</p>
+            </div>
+
+            <div class="two-col reveal">
+                <div>
+                    <h3 class="mb-16">📊 Retention Analysis</h3>
+                    <p class="mb-16">Using bootstrapping (1,000 resamples), I calculated the probability that the
+                        original gate placement retains more players:</p>
+
+                    <div style="display:flex; flex-direction:column; gap:16px; margin-top:16px;">
+                        <div
+                            style="padding:24px; background:white; border:1px solid var(--border-light); border-radius:var(--radius);">
+                            <div
+                                style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <strong>1-Day Retention</strong>
+                                <span style="font-size:1.5rem; font-weight:800; color:var(--primary);">~96%</span>
+                            </div>
+                            <p style="font-size:0.85rem; color:var(--text-muted);">Probability that Level 30 gate is
+                                better</p>
+                            <div
+                                style="height:8px; background:var(--bg-alt); border-radius:4px; margin-top:8px; overflow:hidden;">
+                                <div
+                                    style="width:96%; height:100%; background:var(--gradient-primary); border-radius:4px;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            style="padding:24px; background:white; border:1px solid var(--border-light); border-radius:var(--radius);">
+                            <div
+                                style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <strong>7-Day Retention</strong>
+                                <span style="font-size:1.5rem; font-weight:800; color:var(--emerald);">~99.9%</span>
+                            </div>
+                            <p style="font-size:0.85rem; color:var(--text-muted);">Probability that Level 30 gate is
+                                better</p>
+                            <div
+                                style="height:8px; background:var(--bg-alt); border-radius:4px; margin-top:8px; overflow:hidden;">
+                                <div
+                                    style="width:99.9%; height:100%; background:linear-gradient(135deg, var(--emerald), var(--accent)); border-radius:4px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-showcase">
+                    <img src="assets/ab-test-results.png" alt="7-Day Retention bootstrapping results" />
+                    <div class="image-caption">Bootstrapped retention distributions and percentage difference — showing
+                        100% probability of decrease with Level 40 gate</div>
+                </div>
+            </div>
+
+            <div class="two-col reverse reveal mt-48" style="margin-top: 60px;">
+                <div>
+                    <h3 class="mb-16">🔍 Why Does This Happen?</h3>
+                    <p class="mb-16">The phenomenon is called <strong>"hedonic adaptation"</strong> — the psychological
+                        principle that enjoyment decreases with prolonged, uninterrupted exposure.</p>
+                    <p class="mb-16">By forcing a break at Level 30, the game actually <strong>prevents player
+                            burnout</strong>. Players return refreshed and more likely to keep playing long-term.</p>
+                    <p>Moving the gate to Level 40 gives players more playtime before their first break, but
+                        paradoxically <strong>reduces their motivation to return</strong>.</p>
+
+                    <div
+                        style="margin-top:24px; padding:20px; background:var(--bg-alt); border-radius:var(--radius); border-left:4px solid var(--primary);">
+                        <p style="font-size:0.95rem; color:var(--text); font-weight:600; margin-bottom:4px;">💡 Business
+                            Recommendation</p>
+                        <p style="font-size:0.9rem; color:var(--text-secondary);">Do not move the gate to Level 40. The
+                            current placement at Level 30 is optimal for long-term player retention and engagement.</p>
+                    </div>
+                </div>
+                <div class="image-showcase">
+                    <img src="assets/skewness-report.png" alt="Data distribution and skewness analysis" />
+                    <div class="image-caption">Distribution analysis showing extreme right-skewness in game rounds data,
+                        motivating the use of non-parametric tests</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== METHODOLOGY ========== -->
+    <section class="project-section" id="methodology">
+        <div class="container">
+            <span class="section-label reveal">Technical Deep Dive</span>
+            <h2 class="section-title reveal">Methodology</h2>
+            <p class="section-desc reveal">Click each section to explore the statistical approach in detail.</p>
+
+            <div class="reveal" style="max-width:800px;">
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🎯 Hypothesis Framework</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p><strong>Engagement Test (Game Rounds):</strong></p>
+                            <p>• H₀: No difference in game round distributions between gate_30 and gate_40<br>
+                                • Hₐ: Significant difference exists<br>
+                                • Test: Mann-Whitney U (due to extreme data skewness)</p>
+                            <p style="margin-top:12px;"><strong>Retention Test (1-Day & 7-Day):</strong></p>
+                            <p>• H₀: Retention rates are identical for both groups<br>
+                                • Hₐ: Retention rates differ significantly<br>
+                                • Test: Bootstrapping with 1,000 resamples</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🧹 Data Cleaning & Outlier Detection</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>An extreme outlier was identified in the gate_30 group (49,854 game rounds) — far beyond
+                                normal play. This single point threatened to bias the mean and was removed.</p>
+                            <p>The game rounds distribution was highly right-skewed (Skewness: ~185), meaning most
+                                players play very few rounds while a small number play thousands. This justified using
+                                non-parametric statistical tests.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🔬 Bootstrapping Methodology</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>Bootstrapping is a powerful statistical technique that works by repeatedly resampling the
+                                data to estimate the uncertainty in our measurements:</p>
+                            <p>1. Randomly sample (with replacement) from each group 1,000 times<br>
+                                2. Calculate the retention rate for each resample<br>
+                                3. Compare the distributions of retention rates between groups<br>
+                                4. Compute the probability that one group outperforms the other</p>
+                            <p>This approach is robust and makes minimal assumptions about the underlying data
+                                distribution.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>📊 Mann-Whitney U Test</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>The Mann-Whitney U test was used for engagement analysis because the game rounds data is
+                                extremely non-normal. The test returned a p-value of <strong>0.0509</strong>, suggesting
+                                a marginal but notable difference in distribution, favoring the earlier gate.</p>
+                            <p>While not statistically significant at the traditional α=0.05 level, combined with the
+                                strong retention results, this further supports keeping the gate at Level 30.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack mt-32 reveal">
+                <span class="tech-badge">🐍 Python 3.11</span>
+                <span class="tech-badge">📊 Pandas</span>
+                <span class="tech-badge">🔢 NumPy</span>
+                <span class="tech-badge">📈 SciPy (Stats)</span>
+                <span class="tech-badge">📉 Matplotlib</span>
+                <span class="tech-badge">🎨 Seaborn</span>
+                <span class="tech-badge">📓 Jupyter</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FILE BROWSER ========== -->
+    <section class="project-section" id="files">
+        <div class="container">
+            <span class="section-label reveal">Source Code</span>
+            <h2 class="section-title reveal">Explore the Repository</h2>
+            <p class="section-desc reveal">Browse the complete project files below. Click any file to view its contents.
+            </p>
+            <div class="reveal" id="file-browser-abtesting" style="max-width:800px;"></div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-logo">GB.</span>
+                <div class="footer-links">
+                    <a href="project2.html">← Segmentation</a>
+                    <a href="index.html">Portfolio</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2026 Khayimba Gabriel Baraka. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/file-browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+    <script>
+        new FileBrowser('file-browser-abtesting', 'geekme20-github', 'cookie-cats-ab-testing-analysis');
+    </script>
+</body>
+
+</html>

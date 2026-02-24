@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Segmentation | Gabriel Baraka</title>
+    <meta name="description"
+        content="Customer segmentation using RFM analysis and K-Means clustering on retail transaction data to enable personalized marketing strategies." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">GB.</a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">← Back to Portfolio</a>
+                <a href="#overview">Overview</a>
+                <a href="#results">Results</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#files">Files</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Portfolio</a> <span>/</span> <span>Project 2</span>
+            </div>
+            <h1 class="gradient-text">Customer Segmentation</h1>
+            <p class="project-desc">Using RFM analysis and K-Means clustering to group customers into meaningful
+                segments — transforming "one-size-fits-all" marketing into data-driven personalization.</p>
+            <div class="project-meta">
+                <span class="tag tag-ml">Clustering</span>
+                <span class="tag tag-stats">RFM Analysis</span>
+                <span class="tag tag-python">Python</span>
+                <span class="tag tag-viz">Visualization</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BUSINESS OVERVIEW ========== -->
+    <section class="project-section" id="overview">
+        <div class="container">
+            <div class="two-col">
+                <div class="reveal">
+                    <span class="section-label">The Problem</span>
+                    <h2 class="section-title">Not All Customers Are the Same</h2>
+                    <p class="mb-16">Imagine you run an online retail store. You have thousands of customers — some buy
+                        frequently and spend a lot, while others made one purchase months ago and haven't returned.</p>
+                    <p class="mb-16"><strong>Treating all customers equally is a mistake.</strong> Sending the same
+                        marketing message to a loyal VIP and an inactive customer wastes resources and misses
+                        opportunities.</p>
+                    <p>This project answers three key business questions:</p>
+                    <ul style="margin-top:12px; display:flex; flex-direction:column; gap:8px;">
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--primary);">
+                            <strong>Who are our most loyal customers?</strong>
+                        </li>
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--indigo);">
+                            <strong>Which customers are at risk of churning?</strong>
+                        </li>
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--violet);">
+                            <strong>Which segments have the highest upselling potential?</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div class="results-grid">
+                        <div class="result-highlight">
+                            <div class="result-number">4,372</div>
+                            <div class="result-label">Customers Segmented</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">RFM</div>
+                            <div class="result-label">Analysis Framework</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">K=2</div>
+                            <div class="result-label">Optimal Clusters</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">PCA</div>
+                            <div class="result-label">Visualization Method</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== RESULTS ========== -->
+    <section class="project-section" id="results">
+        <div class="container">
+            <div class="text-center mb-48 reveal">
+                <span class="section-label">The Solution</span>
+                <h2 class="section-title">Two Clear Customer Personas Emerged</h2>
+                <p class="mx-auto section-desc">By analyzing purchasing behavior across three dimensions (Recency,
+                    Frequency, Monetary value), the algorithm identified two distinct customer groups.</p>
+            </div>
+
+            <div class="two-col reveal">
+                <div>
+                    <h3 class="mb-16">🎯 The Segments</h3>
+
+                    <div
+                        style="padding:24px; background:white; border:1px solid var(--border-light); border-radius:var(--radius); margin-bottom:20px;">
+                        <h4 style="color:var(--primary); margin-bottom:8px;">🌟 Cluster 1 — Loyal Customers</h4>
+                        <p style="font-size:0.92rem; margin-bottom:12px;"><strong>Low Recency</strong> (bought recently)
+                            + <strong>High Frequency</strong> + <strong>High Monetary</strong></p>
+                        <p style="font-size:0.88rem; color:var(--text-secondary);">
+                            <strong>Strategy:</strong> VIP loyalty programs, exclusive discounts, personalized upsell
+                            recommendations, referral reward systems, and birthday offers to maximize lifetime value.
+                        </p>
+                    </div>
+
+                    <div
+                        style="padding:24px; background:white; border:1px solid var(--border-light); border-radius:var(--radius);">
+                        <h4 style="color:var(--rose); margin-bottom:8px;">⚠️ Cluster 0 — At-Risk Customers</h4>
+                        <p style="font-size:0.92rem; margin-bottom:12px;"><strong>High Recency</strong> (haven't bought
+                            recently) + <strong>Low Frequency</strong> + <strong>Low Monetary</strong></p>
+                        <p style="font-size:0.88rem; color:var(--text-secondary);">
+                            <strong>Strategy:</strong> Win-back campaigns with time-limited discounts, abandoned cart
+                            reminders, low-price entry offers on bestsellers, and survey incentives for feedback.
+                        </p>
+                    </div>
+                </div>
+                <div class="image-showcase">
+                    <img src="assets/pca-clusters.png" alt="PCA visualization of customer clusters" />
+                    <div class="image-caption">PCA projection showing clear separation between loyal (blue) and at-risk
+                        (orange) customer segments</div>
+                </div>
+            </div>
+
+            <div class="two-col reverse reveal mt-48" style="margin-top: 60px;">
+                <div>
+                    <h3 class="mb-16">📈 Finding the Right Number of Groups</h3>
+                    <p class="mb-16">A critical step in clustering is deciding <strong>how many groups</strong> to
+                        create. Too few and you miss nuances; too many and the groups become meaningless.</p>
+                    <p>I used two mathematical techniques to determine the optimal number:</p>
+                    <ul style="margin-top:12px; display:flex; flex-direction:column; gap:8px;">
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--primary);">
+                            <strong>Elbow Method</strong> — looks for the point of diminishing returns in grouping
+                            quality
+                        </li>
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--amber);">
+                            <strong>Silhouette Analysis</strong> — measures how well each customer fits their assigned
+                            group
+                        </li>
+                    </ul>
+                    <p style="margin-top:12px;">Both methods pointed to <strong>K=2</strong> as the optimal number of
+                        clusters.</p>
+                </div>
+                <div class="image-showcase">
+                    <img src="assets/selection-plot.png" alt="Elbow and Silhouette plot for cluster selection" />
+                    <div class="image-caption">Elbow (inertia) and Silhouette scores across different values of K</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== METHODOLOGY ========== -->
+    <section class="project-section" id="methodology">
+        <div class="container">
+            <span class="section-label reveal">Technical Deep Dive</span>
+            <h2 class="section-title reveal">Methodology</h2>
+            <p class="section-desc reveal">Click each section to explore the data pipeline in detail.</p>
+
+            <div class="reveal" style="max-width:800px;">
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🧹 Data Cleaning & Validation</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>Working with Online Retail transaction data, I performed rigorous cleaning:</p>
+                            <p>• Removed records with missing CustomerID<br>
+                                • Filtered out cancelled transactions (InvoiceNo starting with 'C')<br>
+                                • Ensured only positive Quantity and UnitPrice values were included<br>
+                                • Computed TotalPrice = Quantity × UnitPrice</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>📐 RFM Feature Engineering</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>Transaction-level data was aggregated into three customer-level metrics:</p>
+                            <p>• <strong>Recency (R)</strong>: Days since the customer's last purchase<br>
+                                • <strong>Frequency (F)</strong>: Total number of unique transactions<br>
+                                • <strong>Monetary (M)</strong>: Total revenue generated by the customer</p>
+                            <p>These three numbers give a complete behavioral snapshot of each customer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🔄 Data Transformation</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>K-Means clustering works best with normally distributed, equally-scaled features:</p>
+                            <p>• <strong>Log Transformation</strong>: Applied log1p() to handle highly right-skewed
+                                distributions in all three RFM metrics<br>
+                                • <strong>Standardization</strong>: Used StandardScaler so all features exist on the
+                                same scale (Mean=0, SD=1)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🧠 K-Means Clustering & PCA</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>The K-Means algorithm was applied with the Elbow Method and Silhouette Analysis to
+                                determine the optimal K=2.</p>
+                            <p>PCA (Principal Component Analysis) was used to reduce 3 dimensions to 2 for
+                                visualization, revealing clear separation between the clusters.</p>
+                            <p>The modular pipeline code is split across 6 Python files for maintainability:
+                                load_and_clean, rfm, transform, modeling, profiling, and visualize.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack mt-32 reveal">
+                <span class="tech-badge">🐍 Python</span>
+                <span class="tech-badge">📊 Pandas</span>
+                <span class="tech-badge">🔢 NumPy</span>
+                <span class="tech-badge">🤖 Scikit-learn</span>
+                <span class="tech-badge">📉 Matplotlib</span>
+                <span class="tech-badge">🎨 Seaborn</span>
+                <span class="tech-badge">📓 Jupyter</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FILE BROWSER ========== -->
+    <section class="project-section" id="files">
+        <div class="container">
+            <span class="section-label reveal">Source Code</span>
+            <h2 class="section-title reveal">Explore the Repository</h2>
+            <p class="section-desc reveal">Browse the complete project files below. Click any file to view its contents.
+            </p>
+            <div class="reveal" id="file-browser-segmentation" style="max-width:800px;"></div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-logo">GB.</span>
+                <div class="footer-links">
+                    <a href="project1.html">← Churn Prediction</a>
+                    <a href="index.html">Portfolio</a>
+                    <a href="project3.html">A/B Testing →</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2026 Khayimba Gabriel Baraka. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/file-browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+    <script>
+        new FileBrowser('file-browser-segmentation', 'geekme20-github', 'customer-segmentation-rfm-kmeans');
+    </script>
+</body>
+
+</html>

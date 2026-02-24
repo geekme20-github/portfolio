@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Churn Prediction | Gabriel Baraka</title>
+    <meta name="description"
+        content="ML-powered customer churn prediction dashboard using Logistic Regression, Random Forest, and XGBoost on telco customer data." />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">GB.</a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">← Back to Portfolio</a>
+                <a href="#overview">Overview</a>
+                <a href="#results">Results</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#files">Files</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Portfolio</a> <span>/</span> <span>Project 1</span>
+            </div>
+            <h1 class="gradient-text">Customer Churn Prediction</h1>
+            <p class="project-desc">An ML-powered intelligence dashboard that predicts which telecom customers are
+                likely to leave — empowering companies to act before it's too late.</p>
+            <div class="project-meta">
+                <span class="tag tag-ml">Machine Learning</span>
+                <span class="tag tag-python">Python</span>
+                <span class="tag tag-dash">Dash / Plotly</span>
+                <span class="tag tag-stats">Classification</span>
+            </div>
+            <div style="margin-top: 24px;">
+                <a href="https://geekme20-github-github-io.onrender.com/" target="_blank" class="btn btn-primary">
+                    Takes a bit of time. Kindly be patient. Sorry for any inconveniences.
+                    <br>
+                    🚀 Try Live Demo →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BUSINESS OVERVIEW ========== -->
+    <section class="project-section" id="overview">
+        <div class="container">
+            <div class="two-col">
+                <div class="reveal">
+                    <span class="section-label">The Problem</span>
+                    <h2 class="section-title">Why Predicting Churn Matters</h2>
+                    <p class="mb-16">Imagine running a telecom company with thousands of customers. Every month, some
+                        cancel their service — that's <strong>churn</strong>. Each lost customer costs the company real
+                        money in missed revenue and the expense of acquiring replacements.</p>
+                    <p class="mb-16">The question is: <strong>Can we predict which customers are about to leave, before
+                            they actually do?</strong></p>
+                    <p>If we can identify at-risk customers early, the company can offer targeted incentives — a
+                        discount, a better plan, or personalized support — to convince them to stay. This is far cheaper
+                        than finding new customers.</p>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div class="results-grid">
+                        <div class="result-highlight">
+                            <div class="result-number">7,043</div>
+                            <div class="result-label">Customers Analyzed</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">3</div>
+                            <div class="result-label">ML Models Compared</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">19</div>
+                            <div class="result-label">Features Engineered</div>
+                        </div>
+                        <div class="result-highlight">
+                            <div class="result-number">🎯</div>
+                            <div class="result-label">Interactive Dashboard</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== APPROACH & RESULTS ========== -->
+    <section class="project-section" id="results">
+        <div class="container">
+            <div class="text-center mb-48 reveal">
+                <span class="section-label">The Solution</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="mx-auto section-desc">I built three machine learning models and deployed the best one as an
+                    interactive dashboard where you input customer details and get an instant churn risk score.</p>
+            </div>
+
+            <div class="two-col reveal">
+                <div>
+                    <h3 class="mb-16">🧠 The Models</h3>
+                    <p class="mb-16">Three different algorithms were trained and compared to find the best predictor:
+                    </p>
+                    <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+                        <li
+                            style="display:flex; align-items:center; gap:12px; padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius-sm);">
+                            <strong style="color:var(--primary); min-width:160px;">Logistic Regression</strong>
+                            <span style="color:var(--text-secondary); font-size:0.9rem;">Fast, interpretable baseline
+                                model</span>
+                        </li>
+                        <li
+                            style="display:flex; align-items:center; gap:12px; padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius-sm);">
+                            <strong style="color:var(--primary); min-width:160px;">Random Forest</strong>
+                            <span style="color:var(--text-secondary); font-size:0.9rem;">Ensemble of decision trees for
+                                robustness</span>
+                        </li>
+                        <li
+                            style="display:flex; align-items:center; gap:12px; padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius-sm);">
+                            <strong style="color:var(--primary); min-width:160px;">XGBoost</strong>
+                            <span style="color:var(--text-secondary); font-size:0.9rem;">Advanced gradient boosting —
+                                best performance</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="image-showcase">
+                    <img src="assets/churn-dashboard-1.png" alt="Churn Dashboard showing 68% churn probability" />
+                    <div class="image-caption">Dashboard showing a high-risk customer (68% churn probability) with key
+                        drivers</div>
+                </div>
+            </div>
+
+            <div class="two-col reverse reveal mt-48" style="margin-top: 60px;">
+                <div>
+                    <h3 class="mb-16">📊 Key Insights</h3>
+                    <p class="mb-16">The model reveals which factors most strongly predict whether a customer will
+                        leave:</p>
+                    <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--primary);">
+                            <strong>Contract type</strong> is the #1 predictor — month-to-month customers are at highest
+                            risk
+                        </li>
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--indigo);">
+                            <strong>Internet service type</strong> — fiber optic customers churn more than DSL customers
+                        </li>
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--violet);">
+                            <strong>Tenure</strong> — newer customers are more likely to leave than long-term ones
+                        </li>
+                        <li
+                            style="padding:10px 16px; background:var(--bg-alt); border-radius:var(--radius-sm); border-left:3px solid var(--accent);">
+                            <strong>Payment method</strong> — electronic check users have higher churn rates
+                        </li>
+                    </ul>
+                </div>
+                <div class="image-showcase">
+                    <img src="assets/churn-dashboard-2.png" alt="Churn Dashboard showing 18.9% churn probability" />
+                    <div class="image-caption">A lower-risk customer (18.9%) — longer tenure and mailed check reduce
+                        churn risk</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== METHODOLOGY (Collapsible) ========== -->
+    <section class="project-section" id="methodology">
+        <div class="container">
+            <span class="section-label reveal">Technical Deep Dive</span>
+            <h2 class="section-title reveal">Methodology</h2>
+            <p class="section-desc reveal">Click each section below to explore the technical details behind this
+                project.</p>
+
+            <div class="reveal" style="max-width:800px;">
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🔍 Data Exploration & Cleaning</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>The dataset contains 7,043 telecom customers with 21 features covering demographics,
+                                account information, and services subscribed. Key cleaning steps included:</p>
+                            <p>• Converting TotalCharges from string to numeric and handling missing values<br>
+                                • Engineering new features like <strong>AvgMonthlySpend</strong> and
+                                <strong>NumServices</strong><br>
+                                • One-hot encoding categorical variables (Contract, Internet Service, Payment Method)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>⚙️ Feature Engineering & Scaling</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>19 features were used after encoding. Numerical features (tenure, MonthlyCharges,
+                                TotalCharges, NumServices, AvgMonthlySpend) were standardized using
+                                <strong>StandardScaler</strong> to ensure equal weighting across all models.
+                            </p>
+                            <p>The scaler and feature names were saved as <code>.joblib</code> artifacts for production
+                                deployment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🤖 Model Training & Comparison</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>Three models were trained: Logistic Regression (baseline), Random Forest, and XGBoost.
+                                Each was evaluated using accuracy, precision, recall, F1-score, and ROC-AUC.</p>
+                            <p>XGBoost emerged as the best performer, with particularly strong recall on the churn class
+                                — crucial since missing a churner is more costly than a false alarm.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>🚀 Dashboard Deployment</h3>
+                        <span class="collapsible-arrow">▾</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collapsible-content">
+                            <p>The final application was built using <strong>Dash</strong> (by Plotly) with Bootstrap
+                                theming. The architecture follows a layered design:</p>
+                            <p>• <strong>Data Access Layer</strong> — loads saved model artifacts<br>
+                                • <strong>Business Logic Layer</strong> — calculates churn probability from user
+                                inputs<br>
+                                • <strong>Presentation Layer</strong> — renders the interactive UI<br>
+                                • <strong>Controller Layer</strong> — Dash callbacks connecting inputs to outputs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack mt-32 reveal">
+                <span class="tech-badge">🐍 Python</span>
+                <span class="tech-badge">📊 Pandas</span>
+                <span class="tech-badge">🤖 Scikit-learn</span>
+                <span class="tech-badge">⚡ XGBoost</span>
+                <span class="tech-badge">📉 Plotly / Dash</span>
+                <span class="tech-badge">💾 Joblib</span>
+                <span class="tech-badge">🎨 Dash Bootstrap</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FILE BROWSER ========== -->
+    <section class="project-section" id="files">
+        <div class="container">
+            <span class="section-label reveal">Source Code</span>
+            <h2 class="section-title reveal">Explore the Repository</h2>
+            <p class="section-desc reveal">Browse the complete project files below. Click any file to view its contents.
+            </p>
+            <div class="reveal" id="file-browser-churn" style="max-width:800px;"></div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-logo">GB.</span>
+                <div class="footer-links">
+                    <a href="index.html">Portfolio</a>
+                    <a href="project2.html">Next: Segmentation →</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2026 Khayimba Gabriel Baraka. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/file-browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+    <script>
+        new FileBrowser('file-browser-churn', 'geekme20-github', 'Telco_customer_churn_intelligence');
+    </script>
+</body>
+
+</html>
