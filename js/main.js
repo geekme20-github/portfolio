@@ -15,6 +15,14 @@ function initNavbar() {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
 
+  // Create sidebar backdrop overlay
+  let backdrop = document.querySelector('.sidebar-backdrop');
+  if (!backdrop && hamburger) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'sidebar-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
   // Scroll effect
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -22,26 +30,36 @@ function initNavbar() {
     } else {
       navbar.classList.remove('scrolled');
     }
-
-    // Update active nav link based on scroll position
     updateActiveLink();
   });
 
-  // Hamburger toggle
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
+  // Toggle sidebar
+  function toggleSidebar() {
+    const isOpen = navLinks.classList.contains('active');
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    if (backdrop) backdrop.classList.toggle('active');
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
 
-    // Close nav on link click (mobile)
+  function closeSidebar() {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', toggleSidebar);
+
+    // Close on backdrop click
+    if (backdrop) {
+      backdrop.addEventListener('click', closeSidebar);
+    }
+
+    // Close on link click (mobile)
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeSidebar);
     });
   }
 }
